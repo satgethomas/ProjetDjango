@@ -1,0 +1,18 @@
+{% extends 'master.html' %}
+
+{% block title %}
+    Create a particular call of roll
+{% endblock %}
+
+{% block content %}
+    <form method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <div class="boutons">
+            <button class="button radius alert left" type="cancel">
+                <a href="/lycee">Cancel</a>
+            </button>
+            <button class="button radius success right" type="submit">Submit</button>
+        </div>
+    </form>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'master.html' %}
+
+{% if liste %}
+    {% block title %}
+        list of programs
+    {% endblock %}
+
+    {% block content %}
+    <div class="container">
+    {% for cursus in liste %}
+        <div class='row'>
+        <div class ='col-sm-2'>
+            <a href='/lycee/{{cursus.id}}'>{{cursus.name}}</a><a href='/lycee/cursuscall/{{ cursus.id }}'><button  type="button" class="btn btn-warning">Call of roll</button></a>
+        </div>
+        </div>
+    {% endfor %}
+    <br/>
+    <a href="./presence/create"><button type="button" class="btn btn-danger">Particular Call of roll</button></a><br/>
+        <a href='/lycee/student/create'><button type="button" class="btn btn-primary">Create a student</button></a>
+    <a href='/lycee/presence'><button type="button" class="btn btn-primary">summary absence</button></a>
+    <div class="container">
+        <div class='row'>
+        </div>
+    </div>
+    </div>
+    {% endblock %}
+{% else %}
+    <p>No cursus to show </p>
+{% endif %}

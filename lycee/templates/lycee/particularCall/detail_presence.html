@@ -1,0 +1,30 @@
+{% extends 'master.html' %}
+{% load static %}
+
+{% if liste %}
+  {% block title %}
+    Detail of a missing
+  {% endblock %}
+
+  {% block content %}
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <h3>Reason : {{liste.reason}}</h3>
+          <li>Date : {{liste.date}}</li>
+          <li>Student missing : {{liste.student}}</li>
+          <li>From {{liste.start_time}} to {{liste.end_time}}</li>
+          <button>
+            <a href="./update/{{liste.id}}">Edit Presence data</a>
+          </button>
+          <br>
+          <button>
+            <a href="/lycee">Return</a>
+          </button>
+        </div>
+      </div>
+    </div>
+  {% endblock %}
+{% else %}
+  <p>No student to show.</p>
+{% endif %}

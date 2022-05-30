@@ -1,0 +1,48 @@
+{% extends 'master.html' %}
+{% load static %}
+
+{% if liste %}
+  {% block title %}
+    Cursus call
+  {% endblock %}
+
+  {% block content %}
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <form method="POST">
+            {% csrf_token %}
+              <label for="date">Start date:</label>
+              <input type="date" id="date" name="date_cursuscall"
+                  value="2022-04-14">
+              <br>
+          <table>
+          <tr>
+            <th>Here/Not here</th>
+            <th>Student</th>
+
+          </tr>
+              {% for student in student%}
+                  <tr>
+                      <td> <input type="checkbox" id="{{student.id}}" name="missing" value="{{student.id}}"></td>
+              <td><label for="student"></label>
+                  {{student}}</td>
+
+                  </tr>
+
+
+              {% endfor %}
+          </table>
+          <br>
+              <button class="btn btn-primary" type="submit">
+                Submit
+              </button>
+          <br>
+          </form>
+        </div>
+      </div>
+    </div>
+  {% endblock %}
+{% else %}
+  <p>No student to show.</p>
+{% endif %}

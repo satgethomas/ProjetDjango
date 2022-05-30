@@ -1,0 +1,19 @@
+{% extends 'master.html' %}
+{% if cursus %}
+    {% block title %}
+        liste des étudiants ({{cursus.name}})
+    {% endblock %}
+    {% block content %}
+
+        <div>
+{% for student in student %}
+
+
+
+    <li><a href="/lycee/student/{{student.id}}">{{ student.first_name }} {{ student.last_name }}</a></li>
+
+
+{% endfor %}
+        </div>
+{% endblock %}
+{% endif %}
